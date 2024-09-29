@@ -1,0 +1,276 @@
+﻿@page "/fric"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>FRIC Meter</h1>
+<br />
+
+<h2>Jauge narrative globale</h2>
+<p>
+    Placez le curseur à là graduation à laquelle vous estimez que votre session ce situe.
+</p>
+
+<div class="container">
+    @* Column *@
+    <div class="items">
+        @* Row *@
+        <div class="button button1">VERT</div>
+        <div class="button button2">JAUNE</div>
+        <div class="button button3">ORANGE</div>
+        <div class="button button4">ROUGE</div>
+        <div class="button button5">NOIR</div>
+    </div>
+    <div class="items">
+        <MudSlider Size="Size.Large" T="int" @bind-Value="@_value" />
+    </div>
+    <br />
+</div>
+
+<div class="description">
+    <br />
+
+    @if (_value == 0 || (_value > 0 && _value <= 20))
+    {
+        <p>
+            VERT : Accessible tout-public.
+        </p>
+        <p>
+            Ne comporte ni images effrayantes, ni nudité ou langage grossier.
+        </p>
+        <p>
+            Les sujets de société négatifs ou "sensibles" (racisme, guerre, épidémie, sexisme, drogues...) ne sont pas évoqués ou bien présentés suiant un code moral vertueux.
+        </p>
+        <p>
+            Les scènes de combat sont présentées avec une violence minimisée et le concept de mort est imagé. Dans l'ensemble, l'aventure est menée comme un conte.
+        </p>
+        <br />
+    }
+    @if (_value == 0 || (_value >= 20 && _value <= 40))
+    {
+        <p>
+            JAUNE : Public peu restreint.
+        </p>
+        <p>
+            Ne comporte ni nudité, ni langage grosser. Images effrayante succintes et peuu détaillées.
+        </p>
+        <p>
+            Les sujets de société négatifs ou "sensibles" peuvent être traités de manières images. Les scènes de combats sont "classiques" sans parler d'effusion de sang et le concepte de mort est présenté sans détails.
+        </p>
+        <p>
+            La moral prévaut encore dans la narration.'
+        </p>
+        <br />
+    }
+    @if (_value == 0 || (_value >= 40 && _value <= 60))
+    {
+        <p>
+            ORANGE : Public restreint.
+        </p>
+        <p>
+            Image effrayante modérées et sans détails. Comporte des allusions à caractères sexuel, nudité suggérée et langage moyennement grossier (insultes "classuiques" du langage courrant).
+        </p>
+        <p>
+            Les sujets de société négatifs ou "sensibles" sont traités de manière réaliste sans rentrer dnas les détails.
+        </p>
+        <p>
+            Les scènes de combat peuvent être violentes avec effusion de sang mais sans être "gores" ou "explicites". La morale est plus nuancées.
+        </p>
+        <p>
+        </p>
+        <br />
+    }
+    @if (_value == 0 || (_value >= 60 && _value <= 80))
+    {
+        <p>
+            ROUGE : Public majeur 18+.
+        </p>
+        <p>
+            Comporte de la nudité, du langage grossier ainsi que des images effrayantes détaillées.
+        </p>
+        <p>
+            Les sujets de société négatifs ou "sensibles" sont traités en profondeur et dnas leur quasi-intégralité sans pour autant s'attarder longuement sur les détails les plus roblèmatique.
+        </p>
+        <p>
+            Les scènes de combats sont marquées par des aspects "gores" ou "explicites".
+        </p>
+        <p>
+            La morale peut être mise à mal et il est possible d'aborder des sujet amoraux ouvertement sans pour autant intégrer l'ensemble des détails sur les problèmatiques "très sensibles" <strong>dans le but de veiller à ne pas les glorifier ou les "glamouriser" </strong> tout en veillant à y placer l'emphase horrifique qui y est due.'
+        </p>
+        <br />
+    }
+    @if (_value == 0 || (_value >= 80 && _value <= 100))
+    {
+        <p>
+            NOIR : <strong>NON</strong>
+        </p>
+        <br />
+    }
+
+    @* <MudText Class="pb-4">@_value</MudText> *@
+</div>
+<br />
+
+
+<h2>Type de contenu</h2>
+<p>
+    Renseignez les contenus sur lesquels une prudence ou une retneus particulière est attendue.
+</p>
+<br />
+
+<div class="checkboxes">
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox1">Horreur, peur, effroi, angoisse ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox class="child" @bind-Value="Basic_CheckBox2">Guerre, conflit de grande envergure ...</MudCheckBox>
+    </div>    
+    <div class="child">
+        <MudCheckBox class="child" @bind-Value="Basic_CheckBox3">Religion, fanatisme, croyance ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox class="child" @bind-Value="Basic_CheckBox4"> Maladie, épidémie. famine ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox class="child" @bind-Value="Basic_CheckBox5">Harcelement, agression, viol ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox class="child" @bind-Value="Basic_CheckBox6"> Torture, interrogatoire ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox7">Discrimination, racisme ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox8">Injures, langage grossier, insultes ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox9">Handicap déficience ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox10 ">Terrorisme, attaques suicides ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox11">Prostitution, proxénétiseme ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox12">Drogue, addiction, dépendance ...</MudCheckBox>
+    </div> 
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox13">Folie, PTSD, psycologie ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox14">Scuicide, pensée noires ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox15">Peine de moret, exécution ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox16">Mutation, transformation ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox17">Enfants jeunes, personnes ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox18">Sexisme, homophobie ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox19">Démembrement, mutilation ...</MudCheckBox>
+    </div>
+    <div class="child">
+        <MudCheckBox @bind-Value="Basic_CheckBox20">Sexe, nudités, érotisme ...</MudCheckBox>
+    </div>
+</div>
+
+<style>
+    .checkboxes {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .child {
+        flex: 1 0 21%; /* explanation below */
+        margin: 2px;
+        /* height: 100px; */
+    }
+
+    .container {
+        display: flex;
+        flex-flow: column;
+        flex-wrap: nowrap;
+    }
+
+    .items {
+        display: flex;
+        flex-flow: row;
+        flex-grow: 1;
+    }
+
+    .button {
+        order: 5;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 4px 2px;
+        width: 100%;
+    }
+
+    .button1 {
+        background-color: green;
+        color: black;
+    }
+
+    .button2 {
+        background-color: yellow;
+        color: black;
+    }
+
+    .button3 {
+        background-color: orange;
+        color: black;
+    }
+
+    .button4 {
+        background-color: red;
+        color: black;
+    }
+
+    .button5 {
+        background-color: black;
+        color: lightgray;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+</style>
+
+
+@code {
+    private int _value;
+
+    public bool Basic_CheckBox1 { get; set; } = false;
+    public bool Basic_CheckBox2 { get; set; } = false;
+    public bool Basic_CheckBox3 { get; set; } = false;
+    public bool Basic_CheckBox4 { get; set; } = false;
+    public bool Basic_CheckBox5 { get; set; } = false;
+    public bool Basic_CheckBox6 { get; set; } = false;
+    public bool Basic_CheckBox7 { get; set; } = false;
+    public bool Basic_CheckBox8 { get; set; } = false;
+    public bool Basic_CheckBox9 { get; set; } = false;
+    public bool Basic_CheckBox10 { get; set; } = false;
+    public bool Basic_CheckBox11 { get; set; } = false;
+    public bool Basic_CheckBox12 { get; set; } = false;
+    public bool Basic_CheckBox13 { get; set; } = false;
+    public bool Basic_CheckBox14 { get; set; } = false;
+    public bool Basic_CheckBox15 { get; set; } = false;
+    public bool Basic_CheckBox16 { get; set; } = false;
+    public bool Basic_CheckBox17 { get; set; } = false;
+    public bool Basic_CheckBox18 { get; set; } = false;
+    public bool Basic_CheckBox19 { get; set; } = false;
+    public bool Basic_CheckBox20 { get; set; } = false;
+
+}
